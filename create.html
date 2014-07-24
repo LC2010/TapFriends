@@ -1,0 +1,181 @@
+<html>
+<head>
+	<title>打谁好呢？</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi"/>
+	<style type="text/css">
+	body {
+		background:#eee;
+		font-family:"Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+	}
+	#pic {
+		position:relative;
+		border:1px solid #1D70B6;
+		border-radius:2px;
+		background:#fff;
+		margin:100px auto 0;
+		width:80px;
+		height:80px;
+	}
+	.pic-inner {	
+		width:80px;
+		height:80px;
+		background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAJFBMVEX////r6+v7+/vx8fHw8PDv7+/s7Oz29vb4+Pjt7e3z8/P+/v4YcZsNAAAAf0lEQVR4Xu3YsQmDUBhF4asItv6FQa0Cb4M3QVawtnIDV8gIjuAQ2S9NIK+weL+gWJzTf/WFq53CbL8eUVmVlvTMIlVKXlmkSElzEYFAIBAIpDZni95e0mn0klbm7nYEAoGsXtFr85JBHy+ZGIs0CAQCgUAOnF1nXWoKfxF3wBfgqJgCVTUjIgAAAABJRU5ErkJggg==) no-repeat center 10px;
+		background-size:60%;
+		text-align:center;
+		vertical-align:bottom;
+	}
+	.pic-inner p {
+		position:absolute;
+		top:4em;
+		left:0;
+		width:100%;
+		font-size:12px;
+		color:#999;
+	}
+	#pic img {
+		display:block;
+		position:absolute;
+		top:0;
+		left:0;
+		width:80px;
+		height:80px;
+		z-index:10;
+	}
+	.webuploader-element-invisible {
+		opacity:0;
+	}
+	#name input {
+		display:block;
+		width:90%;
+		margin:40px auto;
+		background:#fff;
+		font-size:14px;
+		color:#333;
+		padding:6px 10px;
+		border:1px solid #1D70B6;
+	}
+	#ok {
+		color:#fff;
+		background:#f00;
+		width:176px;
+		margin:40px auto;
+		height:38px;
+		line-height:38px;
+		font-size:18px;
+		text-align:center;
+	}
+	#tips {
+		color:#f00;
+		font-size:12px;
+	}
+	@media screen and (min-width:321px) {
+		#pic {
+			width:15em;
+			height:15em;
+		}
+		.pic-inner {
+			width:15em;
+			height:15em;
+		}
+		.pic-inner p {
+			font-size:2em;
+		}
+		#pic img {
+			width:15em;
+			height:15em;
+		}
+		#name input {
+			font-size:3em;
+		}
+		#ok {
+			width:8em;
+			height:2em;
+			line-height:2em;
+			font-size:2.5em;
+		}
+		#tips {
+			font-size:1.7em;
+		}
+	}
+	</style>
+</head>
+<body>
+	<div id="pic">
+		<div class="pic-inner">
+			<p>选择照片</p>
+		</div>
+	</div>
+	<div id="name">
+		<input name="user" id="user" type="text" placeholder="打谁呢？输入他名字吧">
+	</div>	
+	<div id="ok">
+		好了，开打！
+	</div>
+	<p id="tips"></p>
+<script src="http://s5.qhimg.com/static/30a0e35d13625672/zepto112.js"></script>
+<script src="http://s5.qhimg.com/static/af2ac69e25eea31c.js"></script>
+<script>
+	var userName = null;
+		uploding = false;
+	var uploader = WebUploader.create({
+		server: './create.php',
+		pick: '#pic',
+		fileVal : 'pic',
+		extensions: 'png',
+		mimeTypes: 'image/*',
+		sendAsBinary : true,
+		//auto : true,
+		thumb : {
+			width  : 80,
+			height : 80
+		},
+		compress : {
+			width  : 160,
+			height : 160
+		}
+	});
+	uploader.on('fileQueued', function(file){
+		uploding = true;
+		uploader.makeThumb( file, function( error, ret ) {
+			if ( error ) {
+				//$li.text('预览错误');
+			} else {
+				$('#pic').append($('<img src="' + ret + '" />'));
+			}
+		});
+	});
+	uploader.on( 'uploadSuccess', function( file, ret ) {
+		if(ret._raw !== 'error'){
+			picid = ret._raw;
+			window.location.href = './index.php?name=' + encodeURIComponent(userName) + '&pic=' + encodeURIComponent(picid);
+		} else {
+			$('#tips').text('没找到要打的人的脸\n确定上传的是图片？');
+			$('#pic').find('pic').remove();
+			uploding = false;
+		}
+	});
+	uploader.on( 'uploadError', function( file ) {
+		alert('上传失败');
+		$('#pic').find('pic').remove();
+	});
+	uploader.on( 'uploadComplete', function( file ) {
+		uploding = false;
+	});
+
+	$('#ok').on('click', function(e){
+		var name = $('#user').val();
+		if(!name){
+			alert('请填写名字啊！');
+			return;
+		}
+		if(!uploding){
+			alert('请选择图片啊！');
+		}
+		userName = name;
+		uploader.upload();
+		$('#tips').text('程序员哥哥正在帮你揉揉' + name + '的脸，让你打得更爽，马上就好！');
+	});
+</script>
+</body>
+</html>
