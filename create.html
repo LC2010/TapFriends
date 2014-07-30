@@ -5,22 +5,18 @@
 	<meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi"/>
 	<style type="text/css">
 	body {
-		background:#eee;
-		font-family:"Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+		background:#f6b8c2 url('http://p4.qhimg.com/d/inn/3c281085/background.jpg') no-repeat;
+		background-size: cover;
+		font-family:"Microsoft Yahei","\5fae\8f6f\96c5\9ed1","Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 	}
 	#pic {
 		position:relative;
-		border:1px solid #1D70B6;
-		border-radius:2px;
-		background:#fff;
 		margin:100px auto 0;
-		width:80px;
-		height:80px;
 	}
 	.pic-inner {	
 		width:80px;
 		height:80px;
-		background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAJFBMVEX////r6+v7+/vx8fHw8PDv7+/s7Oz29vb4+Pjt7e3z8/P+/v4YcZsNAAAAf0lEQVR4Xu3YsQmDUBhF4asItv6FQa0Cb4M3QVawtnIDV8gIjuAQ2S9NIK+weL+gWJzTf/WFq53CbL8eUVmVlvTMIlVKXlmkSElzEYFAIBAIpDZni95e0mn0klbm7nYEAoGsXtFr85JBHy+ZGIs0CAQCgUAOnF1nXWoKfxF3wBfgqJgCVTUjIgAAAABJRU5ErkJggg==) no-repeat center 10px;
+		background:url('http://p3.qhimg.com/d/inn/2e9cf232/upbtn.png') no-repeat center;
 		background-size:60%;
 		text-align:center;
 		vertical-align:bottom;
@@ -50,20 +46,22 @@
 		width:90%;
 		margin:40px auto;
 		background:#fff;
-		font-size:14px;
+		font-size:12px;
 		color:#333;
 		padding:6px 10px;
-		border:1px solid #1D70B6;
+		border:1px solid #bfbabf;
+		border-radius: 40px;
 	}
 	#ok {
 		color:#fff;
-		background:#f00;
+		background:#ed4a5b;
 		width:176px;
 		margin:40px auto;
 		height:38px;
 		line-height:38px;
-		font-size:18px;
+		font-size:14px;
 		text-align:center;
+		border-radius: 40px;
 	}
 	#tips {
 		color:#f00;
@@ -86,13 +84,16 @@
 			height:15em;
 		}
 		#name input {
-			font-size:3em;
+			height: 2.5em;
+			line-height: 2.5em;
+			padding-left: 2em;
+			font-size:1.4em;
 		}
 		#ok {
-			width:8em;
-			height:2em;
-			line-height:2em;
-			font-size:2.5em;
+			width:9em;
+			height:2.5em;
+			line-height:2.5em;
+			font-size:1.4em;
 		}
 		#tips {
 			font-size:1.7em;
@@ -103,7 +104,6 @@
 <body>
 	<div id="pic">
 		<div class="pic-inner">
-			<p>选择照片</p>
 		</div>
 	</div>
 	<div id="name">
@@ -166,11 +166,11 @@
 	$('#ok').on('click', function(e){
 		var name = $('#user').val();
 		if(!name){
-			alert('请填写名字啊！');
+			alert('写上你小三的名字吧！');
 			return;
 		}
 		if(!uploding){
-			alert('请选择图片啊！');
+			alert('把小三的头像给拖上来！');
 		}
 		userName = name;
 		uploader.upload();

@@ -1,6 +1,6 @@
 <?php
 $uri  = '/game/dahaohao/dapic/';
-$name = empty($_GET['name']) ? '周浩' : htmlspecialchars($_GET['name']);
+$name = empty($_GET['name']) ? '三' : htmlspecialchars($_GET['name']);
 $pic  = $uri . (empty($_GET['pic']) ? 'haohao.png' : htmlspecialchars($_GET['pic']));
 ?>
 <html>
@@ -26,7 +26,7 @@ $pic  = $uri . (empty($_GET['pic']) ? 'haohao.png' : htmlspecialchars($_GET['pic
     		'</style>');
     </script>
     <style type="text/css">
-    body {font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; margin: 0; padding: 0;}
+    body {font-family: "Microsoft Yahei","\5fae\8f6f\96c5\9ed1", "Helvetica Neue", Helvetica, STHeiTi, sans-serif; margin: 0; padding: 0;}
     .loading {background-image: url("data:image/gif;base64,R0lGODlhJQAlAJECAL3L2AYrTv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFCgACACwAAAAAJQAlAAACi5SPqcvtDyGYIFpF690i8xUw3qJBwUlSadmcLqYmGQu6KDIeM13beGzYWWy3DlB4IYaMk+Dso2RWkFCfLPcRvFbZxFLUDTt21BW56TyjRep1e20+i+eYMR145W2eefj+6VFmgTQi+ECVY8iGxcg35phGo/iDFwlTyXWphwlm1imGRdcnuqhHeop6UAAAIfkEBQoAAgAsEAACAAQACwAAAgWMj6nLXAAh+QQFCgACACwVAAUACgALAAACFZQvgRi92dyJcVJlLobUdi8x4bIhBQAh+QQFCgACACwXABEADAADAAACBYyPqcsFACH5BAUKAAIALBUAFQAKAAsAAAITlGKZwWoMHYxqtmplxlNT7ixGAQAh+QQFCgACACwQABgABAALAAACBYyPqctcACH5BAUKAAIALAUAFQAKAAsAAAIVlC+BGL3Z3IlxUmUuhtR2LzHhsiEFACH5BAUKAAIALAEAEQAMAAMAAAIFjI+pywUAIfkEBQoAAgAsBQAFAAoACwAAAhOUYJnAagwdjGq2amXGU1PuLEYBACH5BAUKAAIALBAAAgAEAAsAAAIFhI+py1wAIfkEBQoAAgAsFQAFAAoACwAAAhWUL4AIvdnciXFSZS6G1HYvMeGyIQUAIfkEBQoAAgAsFwARAAwAAwAAAgWEj6nLBQAh+QQFCgACACwVABUACgALAAACE5RgmcBqDB2MarZqZcZTU+4sRgEAIfkEBQoAAgAsEAAYAAQACwAAAgWEj6nLXAAh+QQFCgACACwFABUACgALAAACFZQvgAi92dyJcVJlLobUdi8x4bIhBQAh+QQFCgACACwBABEADAADAAACBYSPqcsFADs=");
     	background-repeat: no-repeat;
     	background-position: center center;
@@ -42,13 +42,14 @@ $pic  = $uri . (empty($_GET['pic']) ? 'haohao.png' : htmlspecialchars($_GET['pic
 
     #welcome { background-color:rgba(0,0,0,.8); text-align: center; font-weight: bold;overflow: hidden;}
     .welcome-bg {position:absolute;top:0;left:0;right:0;bottom:0; background: url(./81345eabgw1ei0jyahwhwj20gp0qzt9s.jpg) center center no-repeat; background-size:100% 100%; opacity: .4;overflow: hidden;}
-    #GameTimeLayer {top:1em; left: 0; width:100%; text-align: center; color:#f00; font-size: 4em; text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;overflow: hidden;}
-    #GameLayerBG {top:0;left:0;right:0;bottom:0;overflow:hidden;background:#fff;}
+    #GameTimeLayer {top:1em; left: 0; width:100%; text-align: center; color:#f00; font-size: 4em; text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 40px #fff, 0px 0px 70px #fff;overflow: hidden;}
+    #GameLayerBG {top:0;left:0;right:0;bottom:0;overflow:hidden;background:#f6b8c2 url('http://p9.qhimg.com/d/inn/4a861c7a/game-bg.jpg') no-repeat; background-size: cover;}
+    #GameScoreLayer-bast { margin: 30px auto;}
     .GameLayer {position:absolute;bottom:0;left:0;}
-    .block {position:absolute;border-top:1px solid #1D70B6; background-repeat: no-repeat; background-position: center;}
+    .block {position:absolute;border-right:1px solid #500047; border-bottom: 1px solid #500047; background-repeat: no-repeat; background-position: center;}
     .t1,.t2,.t3,.t4,.t5 { background-size:auto 100%;background-image:url(<?php echo $pic?>);}
-    .tt1,.tt2,.tt3,.tt4,.tt5 { background-size:auto 86%;background-image:url(http://218.244.143.69/games/fight_pig/after.jpg);}
-    .bl {border-left:1px solid #1D70B6;}
+    .tt1,.tt2,.tt3,.tt4,.tt5 { background-size:auto 86%;}
+    /*.bl {border-left:1px solid #1D70B6;}*/
     @-ms-keyframes flash {
     	0% { opacity: 1; }
     	50% { opacity: 0; }
@@ -63,7 +64,7 @@ $pic  = $uri . (empty($_GET['pic']) ? 'haohao.png' : htmlspecialchars($_GET['pic
     .bad {background-color: #f00; -webkit-animation: flash .2s 3;animation: flash .2s 3;}
     *    {-webkit-tap-highlight-color: rgba(0,0,0,0);-ms-tap-highlight-color: rgba(0,0,0,0); tap-highlight-color: rgba(0,0,0,0); -ms-user-select: none;}
 
-    #GameScoreLayer {background-position:center .5em; background-size: auto 4em; padding-top:0.5em; font-size:2em; font-weight: bold; color:#fff; text-align: center;overflow: hidden;}
+    #GameScoreLayer {background-position:center .5em; background:#f6b8c2 url('http://p4.qhimg.com/d/inn/3c281085/background.jpg') no-repeat; background-size: cover; padding-top:0.5em; font-size:2em; font-weight: bold; color: #fff ; text-align: center;overflow: hidden;}
     .bgc1 { background-color: #23378B;}
     .bgc2 { background-color: #009FE3;}
     .bgc3 { background-color: #E42313;}
@@ -72,7 +73,7 @@ $pic  = $uri . (empty($_GET['pic']) ? 'haohao.png' : htmlspecialchars($_GET['pic
 
     .share-icon {width:1.7em; background-repeat:no-repeat; background-size: auto 100%;}
 
-    #GameScoreLayer-btn .btn,#GameScoreLayer-share .btn {text-align: center;font-size:1.1em; background-color: rgba(0,0,0,.3); height:2em; line-height:2em;}
+    #GameScoreLayer-btn .btn,#GameScoreLayer-share .btn {text-align: center;font-size:1em; background-color: rgba(0,0,0,.3); height:2.2em; line-height:2.2em;}
 
     .btn:active {opacity: 0.2;}
     #landscape {display: none;}
@@ -142,7 +143,7 @@ display: none;
 				var btn = document.getElementById('ready-btn');
 				btn.className = 'btn';
 				btn.innerHTML = ' 预备，打！'
-				btn.style.backgroundColor = '#F00';
+				btn.style.backgroundColor = '#ed4a5b';
 				btn.onclick = function(){
 					closeWelcomeLayer();
 				} 					
@@ -346,15 +347,15 @@ display: none;
 	function showGameScoreLayer(){
 		
 		//增加用户微币
-		var addCoins = Math.ceil(_gameScore / 5);
-		$.get("http://218.244.143.69/games/fight_pig/fightPigData.php?addCoins=" + addCoins + "&user=",
-			function(data,status){
-				//alert(data);
-				if(data >= 3){
-					document.getElementById('GameScoreLayer-btn').style.display = 'none';
-					document.getElementById('GameScoreLayer-msg').style.display = 'block';				
-				}				
-		});	
+		// var addCoins = Math.ceil(_gameScore / 5);
+		// $.get("http://218.244.143.69/games/fight_pig/fightPigData.php?addCoins=" + addCoins + "&user=",
+		// 	function(data,status){
+		// 		//alert(data);
+		// 		if(data >= 3){
+		// 			document.getElementById('GameScoreLayer-btn').style.display = 'none';
+		// 			document.getElementById('GameScoreLayer-msg').style.display = 'block';				
+		// 		}				
+		// });	
 		var l = document.getElementById('GameScoreLayer');
 		var c = document.getElementById(_gameBBList[_gameBBListIndex-1].id).className.match(_ttreg)[1];
 		l.className = l.className.replace(/bgc\d/, 'bgc'+c);
@@ -386,7 +387,7 @@ display: none;
 	function shareText( score ){
 		var coins = Math.ceil(score / 5);
 		if( score <= 49 )
-			return '呵呵！我今天打坏了'+score+'个小<?php echo $name?>！<br/>亲，还得加油哦!';
+			return '呵呵！我今天打坏了<span style="color:red">'+score+'个</span>小<?php echo $name?>！<br/>亲，还得加油哦!';
 		if( score <= 99 )
 			return '酷！我打坏了'+score+'个小<?php echo $name?>！<br/>亲，不错哦！';
 		if( score <= 149 )
@@ -459,19 +460,19 @@ display: none;
 </script>
 
 	<div id="GameScoreLayer" class="BBOX SHADE bgc1" style="display:none;">
-		<div style="padding:0 5%;margin-top:30px;">
-			<div id="GameScoreLayer-text"></div>
+		<div style="padding:0 5%;margin-top:105px;">
+			<div id="GameScoreLayer-text" style="color:#440062"></div>
 			<br/>
-			<div id="GameScoreLayer-bast">最高分：</div>
+			<div id="GameScoreLayer-bast" style="color:#9e7da2">最高分：</div>
 			<br/>
 			<div id="GameScoreLayer-btn" class="BOX">
-				<div class="btn BOX-S" onclick="replayBtn()">重来</div>&nbsp;
-				<div class="btn BOX-S" onclick="share()">分享到朋友圈</div>&nbsp;				
+				<div class="btn BOX-S" style="background:#ed4a5b;border-radius:45px;" onclick="replayBtn()">重来</div>&nbsp;
+				<div class="btn BOX-S" style="background:#3ec6a4;border-radius:45px;" onclick="share()">分享到朋友圈</div>&nbsp;				
 			</div>
 			<br/>
-			<a class="btn BOX-S" href="./create.html" style="display:block;color:#fff;text-decoration:none;margin:10px auto;background:rgba(0,0,0,.3);height:2em;line-height:2em">我要打别人</a>&nbsp;
+			<a class="btn BOX-S" href="./create.html" style="display:block;color:#9e7da2;border-radius:45px;text-decoration:none;margin:10px auto;background:#fff;height:2em;line-height:2em">我要打别人</a>&nbsp;
 			<div align="center" style="font-size:0.8em;">
-				<a class="btn BOX-S" align="center" style="color:white" href="http://mp.weixin.qq.com/s?__biz=MjM5MDM1NjQxMQ==&mid=200526942&idx=1&sn=aa8b5565ce376040eb331ac803d94a6e#rd">点此关注小游戏导航，玩更多微信游戏</a>
+				<a class="btn BOX-S" align="center" style="color:#9e7da2;" href="http://mp.weixin.qq.com/s?__biz=MjM5MDM1NjQxMQ==&mid=200526942&idx=1&sn=aa8b5565ce376040eb331ac803d94a6e#rd">点此关注360导航</a>
 			</div>
 			
 			<div id="GameScoreLayer-msg" class="BOX" style="display:none">每天只能打3次小<?php echo $name?>，明天继续吧！ </div>
@@ -484,10 +485,10 @@ display: none;
 		<div class="FILL BOX-M" style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:5;">
 			<div style="margin:0 8% 0 9%;">
 				<br/>
-				<div style="font-size:2em; color:#FEF002;">你爱小<?php echo $name?>吗？</div><br/>
-				<div style="font-size:2em; color:#fff; line-height:1.5em;">点击最下面的小<?php echo $name?>开始，<br/>20秒内看你能打坏了多少个小<?php echo $name?>！<br/></div><br/><br/>
-				<div id="ready-btn" class="btn loading" style="display:inline-block; margin:0 auto; width:8em; height:1.7em; line-height:1.7em; font-size:2.2em; color:#fff;"></div>
-				<a href="./create.html" class="btn" style="display: block;text-decoration: none; margin: 50px auto; width: 8em; height: 1.7em; line-height: 1.7em; font-size: 2.2em; color:#fff; background-color:#090;text-decoration:none">换个人打</a>
+				<div style="font-size:3em; color:#ffe048;">你爱小<?php echo $name?>吗？</div><br/>
+				<div style="font-size:1.5em; color:#ffe048; line-height:2em;">点击最下面的小<?php echo $name?>开始，<br/>20秒内看你能打坏了多少个小<?php echo $name?>！<br/></div><br/><br/>
+				<div id="ready-btn" class="btn loading" style="display:inline-block; margin:0 auto; cursor:pointer; width:8em; height:2em; line-height:2em; font-size:1.8em; color:#fff; border-radius:40px"></div>
+				<a href="./create.html" class="btn" style="display: block;text-decoration: none; margin: 50px auto; width: 8em; height: 2em; line-height: 2em; font-size: 1.8em; color:#fff; background-color:#3ec6a4;text-decoration:none;border-radius:40px">换个人打</a>
 			<br/><br/><br/>
 
 
@@ -505,8 +506,6 @@ display: none;
 	if (isDesktop)
 		document.write('</div>');
 </script>
-
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000480916'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1000480916%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 
 </body>
 </html>
